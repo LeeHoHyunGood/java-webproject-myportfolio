@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>My Portfolio</title>
+    <title>나의 포트폴리오</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,20 +26,22 @@
     <link href="resources/css/freelancer.min.css" rel="stylesheet">
 </head>
 	<body id="page-top">
-	
 	    <!-- Navigation -->
+	    
 		<%@ include file="navigate.jsp" %>
+		
+		<%@ include file="modal.jsp" %>
 	
 	    <!-- Header -->
 	    <header class="masthead bg-primary text-white text-center">
 	      <div class="container">
 	        <img class="img-fluid mb-5 d-block mx-auto" src="resources/img/profile.png" alt="">
-	        <h1 class="text-uppercase mb-0" contentEditable="true">My Portfolio</h1>
+	        <h1 class="text-uppercase mb-0" id="mainTitle" contentEditable="true">${pageOption.mainTitle}</h1>
 	        <hr class="star-light">
-	        <h2 class="font-weight-light mb-0" contentEditable="true">Web Developer - Graphic Artist - User Experience Designer</h2>
+	        <h2 class="font-weight-light mb-0" contentEditable="true">${pageOption.mainContent}</h2>
 	      </div>
 	    </header>
-	
+	    
 	    <!-- Portfolio Grid Section -->
 	    <section class="portfolio" id="portfolio">
 	      <div class="container">
@@ -112,20 +115,20 @@
 	    <!-- About Section -->
 	    <section class="bg-primary text-white mb-0" id="about">
 	      <div class="container">
-	        <h2 class="text-center text-uppercase text-white" contentEditable="true">About</h2>
+	        <h2 class="text-center text-uppercase text-white" contentEditable="true">${pageOption.subTitle}</h2>
 	        <hr class="star-light mb-5">
 	        <div class="row">
 	          <div class="col-lg-4 ml-auto" contentEditable="true">
-	            <p class="lead" >Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+	            <p class="lead" >${pageOption.subContentLeft}</p>
 	          </div>
 	          <div class="col-lg-4 mr-auto" contentEditable="true">
-	            <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+	            <p class="lead">${pageOption.subContentRight}</p>
 	          </div>
 	        </div>
 	        <div class="text-center mt-4">
 	          <a class="btn btn-xl btn-outline-light" href="#">
 	            <i class="fa fa-download mr-2"></i>
-	            Download Now!
+	            이력서 보기!
 	          </a>
 	        </div>
 	      </div>
@@ -389,6 +392,8 @@
 	
 	    <!-- Custom scripts for this template -->
 	    <script src="resources/js/freelancer.min.js"></script>
+	    
+	    <script>$('#mainTitle').on('change', function() {alert('changed')});</script>
 	
 	</body>
 </html>
